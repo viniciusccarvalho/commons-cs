@@ -15,30 +15,20 @@
  *
  */
 
-package io.igx.commons.cv.util;
+package io.igx.commons.cv.color;
 
 import java.awt.*;
+
+import io.igx.commons.cv.util.ColorUtils;
+import org.junit.Test;
 
 /**
  * @author Vinicius Carvalho
  */
-public class ColorUtils {
-
-	public static float getLuma(Color color){
-		return (float) (0.2126 * color.getRed() + 0.7152 * color.getGreen() + 0.0722 * color.getBlue());
+public class ColorUtilTests {
+	@Test
+	public void sampleColors() throws Exception {
+		double d1 = ColorUtils.deltaE(Color.decode("#bc00a0"), Color.decode("#af0397"));
+		System.out.println(d1);
 	}
-
-
-	public static int[] RGB2YUV(Color color){
-
-		int r = color.getRed();
-		int g = color.getGreen();
-		int b = color.getBlue();
-		int Y = (int)(0.299*r+0.587*g+0.114*b);
-		int Cb=(int)(128-0.169*r-0.331*g+0.500*b);
-		int Cr =(int)(128+0.500*r-0.419*g-0.081*b);
-
-		return  new int[]{Y, Cb, Cr};
-	}
-
 }
