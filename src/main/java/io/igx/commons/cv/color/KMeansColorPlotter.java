@@ -18,6 +18,7 @@
 package io.igx.commons.cv.color;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.List;
 
@@ -47,6 +48,15 @@ public class KMeansColorPlotter {
 		Chart chart = AWTChartComponentFactory.chart(Quality.Nicest, IChartComponentFactory.Toolkit.offscreen);
 		chart.getScene().add(scatter);
 		chart.screenshot(output);
+	}
+
+	public static void main(String[] args) {
+		try {
+			KMeansColorPlotter.plot(new File("/Users/vcarvalho/Desktop/plot.png"), new FileInputStream(new File("/Users/vcarvalho/Desktop/zelda_bw.jpg")));
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

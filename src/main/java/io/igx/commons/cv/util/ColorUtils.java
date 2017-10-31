@@ -15,31 +15,33 @@
  *
  */
 
-package io.igx.commons.cv.model;
+package io.igx.commons.cv.util;
 
 import java.awt.*;
-
 
 /**
  * @author Vinicius Carvalho
  */
-public class ColorStats {
+public class ColorUtils {
 
-	private Color color;
-
-	private Integer counter = 0;
-
-	public ColorStats(Color color, Integer counter) {
-		this.color = color;
-		this.counter = counter;
+	public static float getLuma(Color color){
+		return (float) (0.2126 * color.getRed() + 0.7152 * color.getGreen() + 0.0722 * color.getBlue());
 	}
 
-	public Color getColor() {
-		return color;
+
+	public static int[] RGB2YUV(Color color){
+
+		int r = color.getRed();
+		int g = color.getGreen();
+		int b = color.getBlue();
+		int Y = (int)(0.299*r+0.587*g+0.114*b);
+		int Cb=(int)(128-0.169*r-0.331*g+0.500*b);
+		int Cr =(int)(128+0.500*r-0.419*g-0.081*b);
+
+		return  new int[]{Y, Cb, Cr};
 	}
 
-	public Integer getCounter() {
-		return counter;
+	public static void main(String[] args) {
+		System.out.println(getLuma(Color.LIGHT_GRAY));
 	}
-
 }

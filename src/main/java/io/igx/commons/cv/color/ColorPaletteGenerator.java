@@ -75,7 +75,7 @@ public class ColorPaletteGenerator {
 		}
 	}
 
-	private static Color[] generateColors(int n)
+	public static Color[] generateColors(int n)
 	{
 		Color[] cols = new Color[n];
 		for(int i = 0; i < n; i++)
