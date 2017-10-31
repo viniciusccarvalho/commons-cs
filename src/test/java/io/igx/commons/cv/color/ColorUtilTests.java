@@ -17,9 +17,6 @@
 
 package io.igx.commons.cv.color;
 
-import java.awt.*;
-
-import io.igx.commons.cv.util.ColorUtils;
 import org.junit.Test;
 
 /**
@@ -28,7 +25,6 @@ import org.junit.Test;
 public class ColorUtilTests {
 	@Test
 	public void sampleColors() throws Exception {
-		double d1 = ColorUtils.deltaE(Color.decode("#bc00a0"), Color.decode("#af0397"));
-		System.out.println(d1);
+
 	}
 }
