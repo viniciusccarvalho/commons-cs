@@ -42,4 +42,8 @@ public class ColorStats {
 		return counter;
 	}
 
+	public String getRGB(){
+		return String.format("#%02x%02x%02x", color.getRed(), color.getGreen(), color.getBlue());
+	}
+
 }
