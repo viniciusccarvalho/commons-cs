@@ -15,16 +15,7 @@
 			<artifactId>commons-math4</artifactId>
 			<version>4.0-SNAPSHOT</version>
 		</dependency>
-		<dependency>
-			<groupId>org.jzy3d</groupId>
-			<artifactId>jzy3d-api</artifactId>
-			<version>1.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>org.jzy3d</groupId>
-			<artifactId>jzy3d-swt</artifactId>
-			<version>1.0.1-SNAPSHOT</version>
-		</dependency>
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -58,16 +49,7 @@
 			<id>apache-snapshots</id>
 			<url>http://repository.apache.org/snapshots</url>
 		</repository>
-		<repository>
-			<id>jzy3d-snapshots</id>
-			<name>Jzy3d Snapshots</name>
-			<url>http://maven.jzy3d.org/snapshots </url>
-		</repository>
-		<repository>
-			<id>jzy3d-releases</id>
-			<name>Jzy3d Releases</name>
-			<url>http://maven.jzy3d.org/releases </url>
-		</repository>
+
 	</repositories>
 
 </project>
