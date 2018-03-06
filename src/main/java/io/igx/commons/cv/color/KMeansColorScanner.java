@@ -39,6 +39,7 @@ public class KMeansColorScanner {
 	private Integer clusters;
 	private KMeansPlusPlusClusterer<ClusterableColor> kmeansCluster;
 
+
 	public KMeansColorScanner(Integer clusters) {
 		this.clusters = clusters;
 		this.kmeansCluster = new KMeansPlusPlusClusterer<ClusterableColor>(clusters,1000);
@@ -49,6 +50,7 @@ public class KMeansColorScanner {
 	}
 
 	public static List<ClusterableColor> scan(InputStream in, Integer step) throws Exception{
+        System.out.println("Scanning image with steps: " + step);
 		BufferedImage image = ImageIO.read(in);
 		List<ClusterableColor> points = new ArrayList<>((image.getHeight()*image.getWidth())/step);
 
@@ -61,6 +63,7 @@ public class KMeansColorScanner {
 	}
 
 	public List<ColorStats> colorStats(InputStream in) throws Exception {
+        System.out.println("Preparing to scan image");
 		List<ClusterableColor> points = scan(in,10);
 		List<CentroidCluster<ClusterableColor>> clusters = kmeansCluster.cluster(points);
 		List<ColorStats> colorStats = new ArrayList<>();
