@@ -29,6 +29,8 @@ import io.igx.commons.cv.model.ClusterableColor;
 import io.igx.commons.cv.model.ColorStats;
 import org.apache.commons.math4.ml.clustering.CentroidCluster;
 import org.apache.commons.math4.ml.clustering.KMeansPlusPlusClusterer;
+import org.apache.commons.math4.ml.distance.EuclideanDistance;
+import org.apache.commons.rng.core.source32.JDKRandom;
 
 
 /**
@@ -42,7 +44,7 @@ public class KMeansColorScanner {
 
 	public KMeansColorScanner(Integer clusters) {
 		this.clusters = clusters;
-		this.kmeansCluster = new KMeansPlusPlusClusterer<ClusterableColor>(clusters,1000);
+		this.kmeansCluster = new KMeansPlusPlusClusterer<ClusterableColor>(clusters,1000, new EuclideanDistance(), new JDKRandom(1000L));
 	}
 
 	public KMeansColorScanner(){
