@@ -17,6 +17,8 @@ _site/
 *.iml
 *.ipr
 *.iws
+.idea/**
+.idea
 .idea/*
 .factorypath
 dump.rdb
