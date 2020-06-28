@@ -38,17 +38,23 @@ import org.apache.commons.rng.core.source32.JDKRandom;
  */
 public class KMeansColorScanner {
 
-	private Integer clusters;
+	private final Integer clusters;
+	private final Integer steps;
 	private KMeansPlusPlusClusterer<ClusterableColor> kmeansCluster;
 
 
 	public KMeansColorScanner(Integer clusters) {
-		this.clusters = clusters;
-		this.kmeansCluster = new KMeansPlusPlusClusterer<ClusterableColor>(clusters,1000, new EuclideanDistance(), new JDKRandom(1000L));
+		this(clusters, 10);
 	}
 
 	public KMeansColorScanner(){
-		this(8);
+		this(8, 10);
+	}
+
+	public KMeansColorScanner(Integer clusters, Integer steps){
+		this.clusters = clusters;
+		this.steps = steps;
+		this.kmeansCluster = new KMeansPlusPlusClusterer<ClusterableColor>(clusters,1000, new EuclideanDistance(), new JDKRandom(1000L));
 	}
 
 	public static List<ClusterableColor> scan(InputStream in, Integer step) throws Exception{
@@ -66,7 +72,7 @@ public class KMeansColorScanner {
 
 	public List<ColorStats> colorStats(InputStream in) throws Exception {
         System.out.println("Preparing to scan image");
-		List<ClusterableColor> points = scan(in,10);
+		List<ClusterableColor> points = scan(in,this.steps);
 		List<CentroidCluster<ClusterableColor>> clusters = kmeansCluster.cluster(points);
 		List<ColorStats> colorStats = new ArrayList<>();
 		for (CentroidCluster<ClusterableColor> cluster : clusters) {
