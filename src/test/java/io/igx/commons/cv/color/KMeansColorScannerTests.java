@@ -18,6 +18,9 @@
 package io.igx.commons.cv.color;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
@@ -49,8 +52,13 @@ public class KMeansColorScannerTests {
 	@Test
 	public void generateImage() throws Exception {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		ColorPaletteGenerator.createPalette(4096,baos,"gif");
+		ColorPaletteGenerator.createPalette(64,baos,"gif");
 		System.out.println(baos.size());
 		Assertions.assertThat(baos.size()).isGreaterThan(0);
 	}
+
+
+
 }
+
+

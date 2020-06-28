@@ -70,7 +70,8 @@ public class KMeansColorScanner {
 		List<CentroidCluster<ClusterableColor>> clusters = kmeansCluster.cluster(points);
 		List<ColorStats> colorStats = new ArrayList<>();
 		for (CentroidCluster<ClusterableColor> cluster : clusters) {
-			double[] center = cluster.getCenter().getPoint();
+
+			double[] center = cluster.centroid().getPoint();
 			Color color = new Color((int)center[0],(int)center[1],(int)center[2]);
 			colorStats.add(new ColorStats(color,cluster.getPoints().size()));
 		}

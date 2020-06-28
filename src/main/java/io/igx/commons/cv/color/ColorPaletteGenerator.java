@@ -48,7 +48,7 @@ public class ColorPaletteGenerator {
 		if(numColors >= 65_536) {
 			throw new IllegalArgumentException("Can't output more than 16 bit colors");
 		}
-		if(numColors <= 64){
+		if(numColors < 64){
 			throw new IllegalArgumentException("Minimum size of colors has to be 64");
 		}
 		if(!isPerfectSquare(numColors)){
